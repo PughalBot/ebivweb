@@ -5,10 +5,10 @@ import Head from 'next/head';
 
 const AnimatedLetter = ({ letter, delay }) => (
   <motion.span
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 1, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5, delay }}
+    transition={{ duration: 0.3, delay }}
   >
     {letter}
   </motion.span>
@@ -18,7 +18,7 @@ export default function Home() {
   const [showLogo, setShowLogo] = useState(false);
   const [showMarquee, setShowMarquee] = useState(false);
   const [currentText, setCurrentText] = useState([]);
-  const texts = ["STAY TUNED!!!", "Subscribe to get notified"];
+  const texts = ["STAY TUNED!!!", "STAY TUNED!!!"];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const animateText = (text, index = 0, isAppearing = true) => {
@@ -88,7 +88,7 @@ export default function Home() {
                 layout="intrinsic"
               />
             </motion.div>
-            <h1 className='text-[80px] font-na  text-red-600'>
+            <h1 className='text-[40px] md:text-[80px] font-na  text-red-600'>
               {currentText.map((letter, index) => (
                 <AnimatedLetter key={index} letter={letter} delay={index * 0.1} />
               ))}
